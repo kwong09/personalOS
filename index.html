@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+      .window {
+        background-color: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+      }
+      .windowheader {
+        height: 30px;
+        border-radius: 20px; 
+        background-color: rgb(94, 140, 188, 0.5);
+        user-select: none;
+        cursor: move;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .closebutton {
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        text-align: center;
+        color: rgb(94, 140, 188);
+      }
+
+      .selected {
+        background-color: rgb(255, 255, 255, 0.5);
+        padding-bottom: 10px;
+        border-radius: 10px;
+
+      }
+  </style>
+</head>
+<html>
+
+  <body id="body" style="background-image: url(https://kwong09.github.io/personalOS/bearAni.gif); background-size: cover; background-attachment: fixed; background-repeat: no-repeat; height: 100vh; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div id="top" style="left: 50%; transform: translateX(-50%); position: absolute; margin-top: 30px; width: 95%; background-color: rgb(255, 255, 255, 0.5); backdrop-filter: blur(10px); display: flex; justify-content: flex-end; border-radius: 30px; box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);">
+      <p id="welcomeopen" style="cursor: pointer; margin-right: 20px; ">
+        kaylaOS
+      </p>
+
+      <p id="timeElement"
+      style="margin-right: 20px; ">
+        01/10/2025 9:14 PM
+      </p>
+
+    </div>
+
+
+
+    <div class="window" onclick="handleWindowTap(boba)" id="boba" style='height: 300px; display: none; transform: translate(200px, 150px);'>
+      <div class="windowheader" id="bobaheader">
+        <div class="closebutton" id="bobaclose">X</div>
+        <div></div>
+      </div>
+
+      <div style="display: flex; display: flex; gap: 20px;">
+        <div id="sidebar" style="background-color: rgb(94, 140, 188, 0.3); padding: 10px; margin-right: 20px; border-radius: 10px; height: 230px; overflow-y: scroll; width: 100px;">
+          <div id="showIntro" style="padding: 5px; cursor: pointer;">Intro</div>
+          <div id="showGongCha" style="padding: 5px; cursor: pointer;">Gong Cha</div>
+          <div id="show7Leaves" style="padding: 5px; cursor: pointer;">7 Leaves</div>
+          <div id="showVendingMachine" style="padding: 5px; cursor: pointer;">Vending Machine</div>
+        </div>
+        <div id="bobaIntro" style="overflow-y: auto; height: 250px; flex-grow: 1; display: none; width: 100px;">
+          <h2 >kayla's boba log</h2>
+          <p>explore <i>kayla's boba log</i> to see the various boba shops she's visited and how she rates them</p>
+        </div>
+        <div id="gongCha" style="overflow-y: auto; height: 250px; flex-grow: 1; display: none; width: 100px;">
+          <h2>gong cha</h2>
+          <p><i>rating: 10000/10</i><br><i>order: pearl milk tea, 100% sweet, less ice</i></p>
+          
+          <p>why do i love this so much? basically, the boba is the perfect density and not too hard and not too chewy. also, the price is not too expensive because my almost-empty wallet can afford this boba. lastly, the sweetness is absolutely perfect and the milk tea is not too strong and it is not too fragrant (unlike jasmine and oolong)</p>
+          <img src="https://kwong09.github.io/personalOS/gongChaPhoto.png" style="width: 100px;">
+        </div>
+        <div id="sevenLeaves" style="overflow-y: auto; height: 250px; flex-grow: 1; display: none; width: 100px;">
+          <h2>7 leaves</h2>
+          <p><i>rating: 4/5</i><br><i>order: oolong milk tea with boba</i></p>
+          <p>in my opinion, this milk tea was kind of stronger, like less fragrant than jasmine but like 'coffee' kind of strong. not my favorite, but it wasn't too bad. the boba was good!</p>
+        </div>
+        <div id="vendingMachine" style="overflow-y: auto; height: 250px; flex-grow: 1; display: none; width: 100px;">
+          <h2>vending machine (at school)</h2>
+          <p><i>rating: 3/5</i><br><i>order: jasmine milk tea with some weirdjelly</i></p>
+          <p>i don't really like jasmine milk tea and the 'boba' in it was not... chewy. it was super tough to chew. so, yeah. but the milk tea tasted better as i got used to it. wouldn't recommend to anyone though, lol</p>
+          <img src="https://kwong09.github.io/personalOS/vendingMachineImage.jpg" style="width: 100px;">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="window" onclick="handleWindowTap(basketball)" id="basketball" style='height: 300px; display: none; transform: translate(220px, 170px);'>
+      <div class="windowheader" id="basketballheader">
+        <div class="closebutton" id="basketballclose">X</div>
+        <div></div>
+      </div>
+    
+        <div style="overflow-y: scroll; max-height: 250px;">
+          <h2>basketball</h2>
+          <h3>introduction</h3>
+          <p>when kayla was in 2nd grade she decided to play basketball. why? i'm not sure. maybe because her friends were playing or maybe because her parents encouraged her to. 
+            either way, this was the origin story of kayla's basketball journey and the hardships that came along with it. sroll more to learn more about kayla and basketball :)</p>
+          <div style="display: flex; justify-content: space-between;">
+            <img src="https://kwong09.github.io/personalOS/basketballPhoto1.jpg" style="object-fit: cover; width: 160px; height: 100px; border-radius: 20px;">
+            <img src="https://kwong09.github.io/personalOS/basketballPhoto2.JPG" style="object-fit: cover; width: 160px; height: 100px; border-radius: 20px;">
+            <img src="https://kwong09.github.io/personalOS/basketballPhoto3.JPG" style="object-fit: cover; width: 160px; height: 100px; border-radius: 20px;">
+          </div>
+          <h3>high school</h3>
+          <p>fortunately, basketball is not taken too seriously at my school. i have much more fun because it feels like i'm just playing a sport with my friends. it's much less stressful and more enjoyable for me!!</p>
+          <h3>am i good enough?</h3>
+          <p><i>"am i good enough?"</i> this question haunts many people, causing people to doubt themselves and lose confidence. to this day, it is something that i still struggle with.
+          when i played basketball i would constantly compare myself to other people around me. my friends played for national teams and i live in an area where basketball is taken very seriously.
+        to this day, i always ask myself this question. it has made me question the real purpose of why i am playing basketball. am i doing it for the fun of it? are others forcing me to play?
+      am i doing it so when my friends ask me to play i won't look like a dumb dumb? i'm still not sure.</p>
+        </div>
+    </div>
+
+    <div class="window" onclick="handleWindowTap(art)" id="art" style='height: 300px; display: none; transform: translate(240px, 190px);'>
+      <div class="windowheader" id="artheader">
+        <div class="closebutton" id="artclose">X</div>
+        <div></div>
+      </div>
+    
+        <div style="overflow-y: scroll; max-height: 250px;"">
+          <h2>art</h2>
+          <h3>projects</h3>
+          <p>lately, i haven't been working on any specific projects. i drew all the icons and wallpapers on this website, which is probably the closest i have gotten to a relatively large project. i'm hoping to explore other creative outlets for me to draw and make new, fun things!</p>
+          <h3>youtube</h3>
+          <p>in september of 2024 i started a youtube channel where i share my art with others! i currently have about 250 subscribers, so i'm hoping to grow my channel this year!</p>
+          <h3>quarantine</h3>
+          <p>during 2020, i got my first ipad where i explored digital art. from there, my interest in art flourished! i explored apps like autodesk sketchbook, procreate, and adobe where i found my passion for creating.
+            this opened a gateway that forever changed my journey through art.
+          </p>
+        </div>
+    </div>
+
+    <div class="window" onclick="handleWindowTap(tech)" id="tech" style='height: 300px; display: none; transform: translate(260px, 210px);'>
+      <div class="windowheader" id="techheader">
+        <div class="closebutton" id="techclose">X</div>
+        <div></div>
+      </div>
+    
+        <div style="overflow-y: scroll; max-height: 250px;">
+          <h2>tech</h2>
+          <h3>first</h3>
+          <p>in my freshman year of high school, i was in ftc where i made a small robot for the competition. it was a terrible experience because my team had a mentor that... was a bit controlling. anyways, fast forward to sophomore year (2025) i'm now in frc! i'm in the manufacturing subteam and it is SO FUN! i get to make parts and work in the machine shop like 24/7. yay!</p>
+          <h3>hack club</h3>
+          <p>hack club. lol. this is the only tech-y thing i've done besides frc and my school classes</p>
+        </div>
+    </div>
+
+    <div class="window" onclick="handleWindowTap(settings)" id="settings" style='height: 300px; display: none; transform: translate(280px, 230px);'>
+      <div class="windowheader" id="settingsheader">
+        <div class="closebutton" id="settingsclose">X</div>
+        <div></div>
+      </div>
+    
+        <div style="overflow-y: scroll; max-height: 250px;">
+          <h2>settings</h2>
+          <h3>choose a theme <3</h3>
+          <p id="bearBackground" style="cursor: pointer;">bear blues (default)</p>
+          <p id="duckBackground" style="cursor: pointer;">pinky ducky!</p>
+          <p id="redPandaBackground" style="cursor: pointer;">bubbly red panda :)</p>
+        </div>
+    </div>
+
+    <div class="window" onclick="handleWindowTap(business)" id="business" style='height: 300px; display: none; transform: translate(300px, 250px);'>
+      <div class="windowheader" id="businessheader">
+        <div class="closebutton" id="businessclose">X</div>
+        <div></div>
+      </div>
+    
+        <div>
+          <h2>business</h2>
+          <h3>strawberry frog shop</h3>
+          <p>this was the name of the crochet business that i started with my friend in 8th grade (and ended in 8th grade). we made crochet amigurumi items and sold them at our school fairs and carnivals! this was my first real experience with making money, and it was super fun! i was able to turn a fun hobby into a side hustle that earned me a good amount of money (at least $500). although i'm sad this came to an end, i'm looking forward to starting a new sticker business as a creative outlet for my drawings that i make!</p>
+        </div>
+    </div>
+
+
+    
+
+      <div onclick="handleWindowTap(welcome)" id="welcome" style="background-color: rgba(255, 255, 255, 0.9); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; padding: 20px; border-radius: 20px; box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);">
+        <div id="welcomeheader" style="height: 30px; border-radius: 20px; background-color: rgb(94, 140, 188, 0.5); user-select: none; cursor: move; display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
+          <div class="closebutton" style="cursor: pointer; background-color: white; border-radius: 50%; width: 20px; height: 20px; margin-right: 10px; text-align: center; ; color: rgb(94, 140, 188);" id="welcomeclose">X</div>
+        </div>
+        
+        <div>
+
+          <h1 >
+            kaylaOS
+          </h1>
+          <p >
+            <strong>🧋 my very basic boba order:</strong> milk tea with boba, 100% sweet, less ice from <a href="https://gongchausa.com/" target="_blank" style="text-decoration: none; color: rgb(94, 140, 188);"><i>Gong Cha</i></a>
+          </p>
+          <p >
+            <strong>📺 my favorite movies/shows:</strong> Inception, Spider-Man Into the Spider-Verse, Bluey
+          </p>
+          <p >
+            <strong>🐶 my favorite animals:</strong> ducks, dogs, red pandas, capybaras
+          </p>
+
+        </div>
+      </div>
+
+
+
+      <div id="desktopApps" style="padding-top: 100px; padding-left: 30px;">
+        <div id="bobaopen" onmousedown="handleIconTap(bobaopen)" style="position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/bobaIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">boba</p>
+        </div>
+
+        <div id="basketballopen" onmousedown="handleIconTap(basketballopen)" style="margin-left: 110px; position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/basketballIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">basketball</p>
+        </div>
+
+        <div id="artopen" onmousedown="handleIconTap(artopen)" style="margin-top: 150px; position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/artIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">art</p>
+        </div>
+
+        <div id="techopen" onmousedown="handleIconTap(techopen)" style="margin-left: 110px; margin-top: 150px; position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/techIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">tech</p>
+        </div>
+
+        <div id="settingsopen" onmousedown="handleIconTap(settingsopen)" style="margin-left: 85vw; position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/settingsIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">settings</p>
+        </div>
+
+        <div id="businessopen" onmousedown="handleIconTap(businessopen)" style="margin-top: 290px; position: absolute; text-align: center; cursor: pointer;">
+          <img  src="https://kwong09.github.io/personalOS/businessIcon.png" style="width: 100px;">
+          <p style="margin: 0px; margin-top: -10px;">business</p>
+        </div>
+      </div>
+
+    <script src="script.js"></script>
+    
+    
+    
+  </body>
+
+</html>
